@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Cat Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Cat Facts</h1>
+        <p id="fact"></p>
+        <button id="newFactBtn">Get a New Fact</button>
+    </div>
+    <script>
+        const facts = [
+            "Cats have highly sensitive whiskers that can detect changes in their environment.",
+            "Cats purr not only when they're happy but also when they're in pain or stressed.",
+            "Just like human fingerprints, every cat has a unique nose print.",
+            "Cats sleep for about 12 to 16 hours a day, which is roughly two-thirds of their life.",
+            "Cats have a unique way of communicating with humans using vocalizations and body language.",
+            "Cats were domesticated around 9,000 years ago in the Near East.",
+            "Cats can jump up to six times their body length in one leap.",
+            "Cats can see shades of blue and green but have difficulty distinguishing between reds and pinks.",
+            "Cats spend a significant amount of time grooming themselves to regulate their body temperature.",
+            "Many cats are social animals and enjoy the company of humans and other pets."
+        ];
+
+        function getRandomFact() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            return facts[randomIndex];
+        }
+
+        document.getElementById('newFactBtn').addEventListener('click', () => {
+            document.getElementById('fact').innerText = getRandomFact();
+        });
+
+        // Display a random fact on initial load
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('fact').innerText = getRandomFact();
+        });
+    </script>
+</body>
+</html>
